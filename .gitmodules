@@ -1,3 +1,6 @@
 [submodule "DdiMon"]
 	path = DdiMon
 	url = https://github.com/tandasat/DdiMon.git
+[submodule "DdiMon/capstone"]
+	path = DdiMon/capstone
+	url = https://github.com/tandasat/capstone.git
