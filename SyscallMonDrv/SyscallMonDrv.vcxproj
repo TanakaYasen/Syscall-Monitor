@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CA06D4AA-DDCC-47A4-940A-F5B90F5FC993}</ProjectGuid>
+    <TemplateGuid>{dd38f7fc-d7bd-488b-9242-7d8754cde80d}</TemplateGuid>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration>Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">Win32</Platform>
+    <RootNamespace>SyscallMonDrv</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <TargetVersion>Windows7</TargetVersion>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <TargetVersion>Windows7</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <TargetVersion>Windows7</TargetVersion>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <TargetVersion>Windows7</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="syscallmondrv.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="syscallmondrv.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="syscallmondrv.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="syscallmondrv.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <IncludePath>$(VC_IncludePath);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <IncludePath>$(VC_IncludePath);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <IncludePath>$(VC_IncludePath);$(SolutionDir)DdiMon\capstone\include;$(SolutionDir)DdiMon\HyperPlatform;$(SolutionDir)DdiMon\HyperPlatform\HyperPlatform;$(IncludePath)</IncludePath>
+    <EnableInf2cat>false</EnableInf2cat>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <IncludePath>$(VC_IncludePath);$(SolutionDir)DdiMon\capstone\include;$(SolutionDir)DdiMon\HyperPlatform;$(SolutionDir)DdiMon\HyperPlatform\HyperPlatform;$(IncludePath)</IncludePath>
+    <EnableInf2cat>false</EnableInf2cat>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>fltmgr.lib;libcntpr.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\bin64\SyscallMon64.sys</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies);$(KernelBufferOverflowLib);$(DDK_LIB_PATH)ntoskrnl.lib;$(DDK_LIB_PATH)hal.lib;$(DDK_LIB_PATH)wmilib.lib;fltmgr.lib;libcntpr.lib;</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\bin64\SyscallMon64.sys</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\bin32\SyscallMon32.sys</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\bin32\SyscallMon32.sys</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Inf Include="SyscallMonDrv.inf" />
+  </ItemGroup>
+  <ItemGroup>
+    <FilesToPackage Include="$(TargetPath)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\DdiMon\DdiMon\ddi_mon.h" />
+    <ClInclude Include="..\DdiMon\DdiMon\shadow_hook.h" />
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\asm.h" />
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\common.h" />
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\ept.h" />
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\global_object.h" />
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\hotplug_callback.h" />
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\ia32_type.h" />
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\log.h" />
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\performance.h" />
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\perf_counter.h" />
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\power_callback.h" />
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\util.h" />
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\util_page_constants.h" />
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\vm.h" />
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\vmm.h" />
+    <ClInclude Include="Syscallmon\cs_driver_mm.h" />
+    <ClInclude Include="Syscallmon\hook.h" />
+    <ClInclude Include="Syscallmon\main.h" />
+    <ClInclude Include="Syscallmon\NativeEnums.h" />
+    <ClInclude Include="Syscallmon\NativeStructs.h" />
+    <ClInclude Include="Syscallmon\PEStructs.h" />
+    <ClInclude Include="Syscallmon\syscall_mon.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\DdiMon\DdiMon\ddi_mon.cpp" />
+    <ClCompile Include="..\DdiMon\DdiMon\shadow_hook.cpp" />
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\ept.cpp" />
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\global_object.cpp" />
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\hotplug_callback.cpp" />
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\kernel_stl.cpp" />
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\log.cpp" />
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\performance.cpp" />
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\power_callback.cpp" />
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\util.cpp" />
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\vm.cpp" />
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\vmm.cpp" />
+    <ClCompile Include="Syscallmon\cm.cpp" />
+    <ClCompile Include="Syscallmon\cs_driver_mm.c" />
+    <ClCompile Include="Syscallmon\driver.cpp" />
+    <ClCompile Include="Syscallmon\etwcon.cpp" />
+    <ClCompile Include="Syscallmon\eventlist.cpp" />
+    <ClCompile Include="Syscallmon\filelist.cpp" />
+    <ClCompile Include="Syscallmon\fltmsg.cpp" />
+    <ClCompile Include="Syscallmon\fsflt.cpp" />
+    <ClCompile Include="Syscallmon\hook.cpp" />
+    <ClCompile Include="Syscallmon\inject.cpp" />
+    <ClCompile Include="Syscallmon\notify.cpp" />
+    <ClCompile Include="Syscallmon\proclist.cpp" />
+    <ClCompile Include="Syscallmon\ps.cpp" />
+    <ClCompile Include="Syscallmon\ssdt.cpp" />
+    <ClCompile Include="Syscallmon\syscall_mon.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="..\DdiMon\HyperPlatform\HyperPlatform\Arch\x64\x64.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </MASM>
+    <MASM Include="..\DdiMon\HyperPlatform\HyperPlatform\Arch\x86\x86.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </MASM>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DdiMon\capstone\msvc\capstone_static_winkernel\capstone_static_winkernel.vcxproj">
+      <Project>{fe197816-ef84-4e8d-b29d-e0a6ba2b144b}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

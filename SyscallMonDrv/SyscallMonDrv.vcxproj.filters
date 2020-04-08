@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Driver Files">
+      <UniqueIdentifier>{8E41214B-6785-4CFE-B992-037D68949A14}</UniqueIdentifier>
+      <Extensions>inf;inv;inx;mof;mc;</Extensions>
+    </Filter>
+    <Filter Include="HyperPlatform">
+      <UniqueIdentifier>{bafcb7fd-dc20-44c0-b17a-f81494c4e36f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DdiMon">
+      <UniqueIdentifier>{5a30dafc-32c9-4b5b-a637-c5e5f2e71d5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SyscallMonDrv">
+      <UniqueIdentifier>{0791c9e0-e4fd-40f4-9805-40a0f5750920}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Inf Include="SyscallMonDrv.inf">
+      <Filter>Driver Files</Filter>
+    </Inf>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\asm.h">
+      <Filter>HyperPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\common.h">
+      <Filter>HyperPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\ept.h">
+      <Filter>HyperPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\global_object.h">
+      <Filter>HyperPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\hotplug_callback.h">
+      <Filter>HyperPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\ia32_type.h">
+      <Filter>HyperPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\log.h">
+      <Filter>HyperPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\perf_counter.h">
+      <Filter>HyperPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\performance.h">
+      <Filter>HyperPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\power_callback.h">
+      <Filter>HyperPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\util.h">
+      <Filter>HyperPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\util_page_constants.h">
+      <Filter>HyperPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\vm.h">
+      <Filter>HyperPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\vmm.h">
+      <Filter>HyperPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DdiMon\DdiMon\ddi_mon.h">
+      <Filter>DdiMon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DdiMon\DdiMon\shadow_hook.h">
+      <Filter>DdiMon</Filter>
+    </ClInclude>
+    <ClInclude Include="Syscallmon\cs_driver_mm.h">
+      <Filter>SyscallMonDrv</Filter>
+    </ClInclude>
+    <ClInclude Include="Syscallmon\hook.h">
+      <Filter>SyscallMonDrv</Filter>
+    </ClInclude>
+    <ClInclude Include="Syscallmon\main.h">
+      <Filter>SyscallMonDrv</Filter>
+    </ClInclude>
+    <ClInclude Include="Syscallmon\NativeEnums.h">
+      <Filter>SyscallMonDrv</Filter>
+    </ClInclude>
+    <ClInclude Include="Syscallmon\NativeStructs.h">
+      <Filter>SyscallMonDrv</Filter>
+    </ClInclude>
+    <ClInclude Include="Syscallmon\PEStructs.h">
+      <Filter>SyscallMonDrv</Filter>
+    </ClInclude>
+    <ClInclude Include="Syscallmon\syscall_mon.h">
+      <Filter>SyscallMonDrv</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\ept.cpp">
+      <Filter>HyperPlatform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\global_object.cpp">
+      <Filter>HyperPlatform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\hotplug_callback.cpp">
+      <Filter>HyperPlatform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\kernel_stl.cpp">
+      <Filter>HyperPlatform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\log.cpp">
+      <Filter>HyperPlatform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\performance.cpp">
+      <Filter>HyperPlatform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\power_callback.cpp">
+      <Filter>HyperPlatform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\util.cpp">
+      <Filter>HyperPlatform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\vm.cpp">
+      <Filter>HyperPlatform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DdiMon\HyperPlatform\HyperPlatform\vmm.cpp">
+      <Filter>HyperPlatform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DdiMon\DdiMon\ddi_mon.cpp">
+      <Filter>DdiMon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DdiMon\DdiMon\shadow_hook.cpp">
+      <Filter>DdiMon</Filter>
+    </ClCompile>
+    <ClCompile Include="Syscallmon\cm.cpp">
+      <Filter>SyscallMonDrv</Filter>
+    </ClCompile>
+    <ClCompile Include="Syscallmon\cs_driver_mm.c">
+      <Filter>SyscallMonDrv</Filter>
+    </ClCompile>
+    <ClCompile Include="Syscallmon\driver.cpp">
+      <Filter>SyscallMonDrv</Filter>
+    </ClCompile>
+    <ClCompile Include="Syscallmon\etwcon.cpp">
+      <Filter>SyscallMonDrv</Filter>
+    </ClCompile>
+    <ClCompile Include="Syscallmon\eventlist.cpp">
+      <Filter>SyscallMonDrv</Filter>
+    </ClCompile>
+    <ClCompile Include="Syscallmon\filelist.cpp">
+      <Filter>SyscallMonDrv</Filter>
+    </ClCompile>
+    <ClCompile Include="Syscallmon\fltmsg.cpp">
+      <Filter>SyscallMonDrv</Filter>
+    </ClCompile>
+    <ClCompile Include="Syscallmon\fsflt.cpp">
+      <Filter>SyscallMonDrv</Filter>
+    </ClCompile>
+    <ClCompile Include="Syscallmon\hook.cpp">
+      <Filter>SyscallMonDrv</Filter>
+    </ClCompile>
+    <ClCompile Include="Syscallmon\inject.cpp">
+      <Filter>SyscallMonDrv</Filter>
+    </ClCompile>
+    <ClCompile Include="Syscallmon\notify.cpp">
+      <Filter>SyscallMonDrv</Filter>
+    </ClCompile>
+    <ClCompile Include="Syscallmon\proclist.cpp">
+      <Filter>SyscallMonDrv</Filter>
+    </ClCompile>
+    <ClCompile Include="Syscallmon\ps.cpp">
+      <Filter>SyscallMonDrv</Filter>
+    </ClCompile>
+    <ClCompile Include="Syscallmon\ssdt.cpp">
+      <Filter>SyscallMonDrv</Filter>
+    </ClCompile>
+    <ClCompile Include="Syscallmon\syscall_mon.cpp">
+      <Filter>SyscallMonDrv</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="..\DdiMon\HyperPlatform\HyperPlatform\Arch\x64\x64.asm">
+      <Filter>HyperPlatform</Filter>
+    </MASM>
+    <MASM Include="..\DdiMon\HyperPlatform\HyperPlatform\Arch\x86\x86.asm">
+      <Filter>HyperPlatform</Filter>
+    </MASM>
+  </ItemGroup>
+</Project>
