@@ -16,11 +16,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Inf Include="SyscallMonDrv.inf">
-      <Filter>Driver Files</Filter>
-    </Inf>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\DdiMon\HyperPlatform\HyperPlatform\asm.h">
       <Filter>HyperPlatform</Filter>
     </ClInclude>
